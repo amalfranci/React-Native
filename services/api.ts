@@ -7,6 +7,9 @@ export const TMDB_CONFIG = {
   },
 };
 
+
+
+
 export const fetchMovies = async ({
   query,
 }: {
@@ -16,6 +19,8 @@ export const fetchMovies = async ({
     ? `${TMDB_CONFIG.BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
     : `${TMDB_CONFIG.BASE_URL}/discover/movie?sort_by=popularity.desc`;
 
+
+    console.log("TMDB API KEY:", process.env.EXPO_PUBLIC_MOVIE_API_KEY);
   const response = await fetch(endpoint, {
     method: "GET",
     headers: TMDB_CONFIG.headers,
